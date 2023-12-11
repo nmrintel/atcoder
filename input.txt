@@ -1,0 +1,20 @@
+create table 成績(学籍番号 int,氏名 int,数学 int,英語 int);
+insert into 成績 values(1001,'群馬太郎',59,80);
+select * from 成績;
+update 成績 set 数学 =20 where 学籍番号 = 1001;
+
+create table values('都道府県' text,'人口' int,'65歳以上人口' int,'高齢化率' int);
+.mode csv
+.import ./koureisha.csv kadai
+select sum (６５歳以上人口) from kadai;
+select count (高齢化率>=33 or NULL) from kadai;
+select 都道府県 from kadai where 高齢化率>=33;
+select 都道府県 from kadai where 高齢化率<27 and 人口>500
+select * from kadai order by 人口　DESC
+
+
+create table kadai('都道府県' text,'人口' int,'６５歳以上人口' int,'高齢化率' real);
+.mode csv
+.import ./koureisha.csv kadai
+select 都道府県 from kadai where 高齢化率<27 and 人口>500
+
